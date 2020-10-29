@@ -10,6 +10,7 @@ public class Driver {
 	public static void main(String[] args) throws MyException {
 		int choice, element;
 		Mystack mystack = new Mystack();
+		MyException ex = new MyException(null);
 
 		Scanner sc = new Scanner(System.in);
 
@@ -26,13 +27,21 @@ public class Driver {
 			switch (choice) {
 
 			case 1:
-				System.out.print("Enter Element:  ");
-				element = sc.nextInt();
-				System.out.println(mystack.insert(element) + " is added");
+				try {
+					System.out.print("Enter Element:  ");
+					element = sc.nextInt();
+					System.out.println(mystack.insert(element) + " is added");
+				} catch (MyException ex1) {
+					System.out.println(ex1.getMessage());
+				}
 				break;
 
 			case 2:
-				System.out.println(mystack.delete() + " is deleted");
+				try {
+					System.out.println(mystack.delete() + " is deleted");
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 
 			case 3:
