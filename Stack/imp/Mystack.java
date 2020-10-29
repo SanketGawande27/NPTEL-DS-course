@@ -4,7 +4,7 @@ import stack.customException.MyException;
 
 public class Mystack {
 
-	final int MAX = 10;
+	final int MAX = 5;
 	int top = -1;
 	int stk[] = new int[MAX];
 	int count = 0;
@@ -12,7 +12,7 @@ public class Mystack {
 
 	public int insert(int element) throws MyException {
 		if (top >= (MAX - 1)) {
-			throw new MyException("Stack is already Full");
+			throw new MyException("Stack is full no element is added");
 		} else {
 			stk[++top] = element;
 			count++;
@@ -23,7 +23,7 @@ public class Mystack {
 
 	public int delete() throws MyException {
 		if (top < 0) {
-			throw new MyException("Stack is already Empty");
+			throw new MyException("Stack is already Empty element not been deleted");
 		} else {
 			element = stk[top--];
 			count--;
